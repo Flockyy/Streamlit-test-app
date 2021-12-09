@@ -11,7 +11,7 @@ db = get_database()
 carfeatures = db['CarFeatures']
 
 
-cars_constructor = [i for i in carfeatures.find({}, {'Make'})]
+cars_constructor = [i for i in carfeatures.find({}, {'Make':1, '_id':0})]
 
 st.write(""" # Car Features """)
 
