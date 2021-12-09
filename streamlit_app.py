@@ -10,6 +10,6 @@ db = get_database()
 carfeatures = db['CarFeatures']
 
 
-cars = [i for i in carfeatures.find({'make'}, {'make':1})]
+cars = [i for i in carfeatures.find()]
 
 st.write(cars)
