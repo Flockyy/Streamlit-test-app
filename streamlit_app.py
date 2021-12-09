@@ -1,5 +1,6 @@
 from pymongo import MongoClient
-import streamlit_app as st
+import streamlit as st
+import pandas as pd
 
 def get_database():
     CONNECTION_STRING = 'mongodb+srv://f-abgrall:admin@cluster0.2saqp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
@@ -12,4 +13,4 @@ carfeatures = db['CarFeatures']
 
 cars = [i for i in carfeatures.find()]
 
-st.write(cars)
+st.write(""" # Web Scraping App """)
