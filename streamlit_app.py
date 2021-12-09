@@ -11,7 +11,7 @@ car_makers = cars.aggregate([{'$group':{"_id": {"Make": "$Make"}}}])
 st.write(""" # Car Features """)
 makers = []
 for i in car_makers:
-    makers.append(i['_id']['Make')
+    makers.append(i['_id']['Make'])
 
 my_cont = st.container() 
 
