@@ -11,6 +11,8 @@ db = get_database()
 carfeatures = db['CarFeatures']
 
 
-cars = [i for i in carfeatures.find()]
+cars_constructor = [i for i in carfeatures.find({'Make'})]
 
-st.write(""" # Web Scraping App """)
+st.write(""" # Car Features """)
+
+st.write(cars_constructor)
