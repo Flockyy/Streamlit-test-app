@@ -1,6 +1,4 @@
 from pymongo import MongoClient
-import pymongo
-from pprint import pprint
 
 def get_database():
     CONNECTION_STRING = 'mongodb+srv://f-abgrall:admin@cluster0.2saqp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
