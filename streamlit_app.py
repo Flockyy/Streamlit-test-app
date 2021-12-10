@@ -2,6 +2,7 @@ from pymongo import MongoClient
 import streamlit as st
     
 CONNECTION_STRING = 'mongodb+srv://f-abgrall:admin@cluster0.2saqp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+# client = MongoClient(**st.secrets['mongo'])
 client = MongoClient(CONNECTION_STRING)
 
 def get_db():
@@ -41,8 +42,7 @@ def add_car():
             'Year': year, 
             'Engine HP': hp, 
             'Engine Cylinders' : cylinders,
-            }, 
-        {'_id': 0}
+        }
     )
     return created_car
     
