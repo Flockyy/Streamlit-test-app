@@ -65,4 +65,4 @@ if maker_input and model_input:
 
 if submit:
     your_new_car = add_car()
-    st.write(f'The {model} from {make} have been added')
+    st.write(f"The {your_new_car['Model']} from {your_new_car['Make']} have been added")
