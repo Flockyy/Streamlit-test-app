@@ -1,9 +1,7 @@
 from pymongo import MongoClient
 import streamlit as st
     
-# CONNECTION_STRING = 'mongodb+srv://f-abgrall:admin@cluster0.2saqp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 client = MongoClient(**st.secrets['mongo'])
-# client = MongoClient(CONNECTION_STRING)
 
 def get_db():
     db = client.Car
