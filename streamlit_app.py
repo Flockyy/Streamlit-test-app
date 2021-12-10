@@ -1,9 +1,9 @@
 from pymongo import MongoClient
 import streamlit as st
     
-CONNECTION_STRING = 'mongodb+srv://f-abgrall:admin@cluster0.2saqp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-# client = MongoClient(**st.secrets['mongo'])
-client = MongoClient(CONNECTION_STRING)
+# CONNECTION_STRING = 'mongodb+srv://f-abgrall:admin@cluster0.2saqp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+client = MongoClient(**st.secrets['mongo'])
+# client = MongoClient(CONNECTION_STRING)
 
 def get_db():
     db = client.Car
@@ -17,13 +17,13 @@ car_makers = cars.distinct("Make")
 st.write(""" # Car Features """)
 
 def search_by_maker_model():
-    researched_maker = cars.find_one({'Make': maker_input, 'Model': model_input}, {'_id': 0})
-    if researched_maker != None and researched_maker['Highway L/100 km'] != None:
-        st.write(f"""La {researched_maker['Make']} {researched_maker['Model']} {researched_maker['Vehicle Style']},
-        de {researched_maker['Year']} a {researched_maker['Engine HP']} chevaux 
-        et {researched_maker['Engine Cylinders']} cylindres.
-        Sa consommation sur autoroute est de {int(researched_maker['Highway L/100 km'])} L au 100 km 
-        et de {int(researched_maker['City L/100 km'])} L au 100km en ville.""")
+    researched_makers = cars.find({'Make': maker_input, 'Model': model_input}, {'_id': 0})
+    for i in researched_makers:
+        st.write(f"""La {i['Make']} {i['Model']} {i['Vehicle Style']},
+        de {i['Year']} a {i['Engine HP']} chevaux 
+        et {i['Engine Cylinders']} cylindres.
+        Sa consommation sur autoroute est de {int(i['Highway L/100 km'])} L au 100 km 
+        et de {int(i['City L/100 km'])} L au 100km en ville.""")
         
 def add_car():
     cars.insert_one(
