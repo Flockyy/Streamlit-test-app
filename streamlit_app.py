@@ -26,7 +26,7 @@ def search_by_maker_model():
         et de {int(researched_maker['City L/100 km'])} L au 100km en ville.""")
         
 def add_car():
-    cars.insert(
+    cars.insert_one(
         {
             'Make': make,
             'Model': model,
@@ -64,5 +64,5 @@ if maker_input and model_input:
     search_by_maker_model()
 
 if submit:
-    add_car()
+    your_new_car = add_car()
     st.write(f"The {model} from {make} have been added")
