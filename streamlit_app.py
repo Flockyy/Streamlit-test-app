@@ -64,5 +64,5 @@ if maker_input and model_input:
     search_by_maker_model()
 
 if submit:
-    your_new_car = add_car()
+    add_car()
     st.write(f"The {model} from {make} have been added")
