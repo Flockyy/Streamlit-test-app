@@ -43,7 +43,7 @@ year = form.number_input('Année', min_value=1900, max_value=2022, step=1)
 hp = form.number_input('Chevaux', min_value=1, max_value=1200, step=1)
 cylinders = form.number_input('Cylindres', min_value=1, max_value=16, step=1)
 submit = form.form_submit_button('Submit')
-st.text_input()
+
 def add_car():
     cars.insert_one(
         {
