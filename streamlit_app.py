@@ -17,7 +17,7 @@ st.write(""" # Car Features """)
 
 def search_by_maker_model():
     researched_maker = cars.find_one({'Make': maker_input, 'Model': model_input}, {'_id': 0})
-    if researched_maker != None:
+    if researched_maker != None and researched_maker['Highway L/100 km'] != None:
         st.write(f"""La {researched_maker['Make']} {researched_maker['Model']} {researched_maker['Vehicle Style']},
         de {researched_maker['Year']} a {researched_maker['Engine HP']} chevaux 
         et {researched_maker['Engine Cylinders']} cylindres.
@@ -40,7 +40,7 @@ def add_car():
             'Model': model, 
             'Year': year, 
             'Engine HP': hp, 
-            'Engine Cylinders' : cylinders
+            'Engine Cylinders' : cylinders,
             }, 
         {'_id': 0}
     )
@@ -65,4 +65,4 @@ if maker_input and model_input:
 
 if submit:
     your_new_car = add_car()
-    st.write(f"The {your_new_car['Model']} from {your_new_car['Make']} have been added")
+    st.write(f"The {model} from {make} have been added")
